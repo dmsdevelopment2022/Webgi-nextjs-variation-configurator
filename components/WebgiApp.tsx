@@ -32,7 +32,7 @@ export default function WebgiApp(props: any) {
 
     const config = await viewer.addPlugin(VariationConfiguratorPlugin);
     await config.importPath("config.json");
-    manager.addFromPath("https://3dassetsmaan.s3.ap-south-1.amazonaws.com/VariationConfiguratorTutorials/1/scene.vjson");
+    manager.addFromPath("https://dev.kgkdms.com/imageserver/customize/config/scene.vjson");
 
     setViewer(viewer);
     props.setConfig(config);

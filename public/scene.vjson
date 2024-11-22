@@ -1,5 +1,10 @@
 {
-  "version": "0.9.20",
+  "version": "0.9.2",
+  "type": "ViewerApp",
+  "metadata": {
+    "generator": "WebGiViewerApp",
+    "version": 1
+  },
   "plugins": [
     {
       "exportOptions": {
@@ -8,6 +13,7 @@
         "viewerConfig": true,
         "encodeUint16Rgbe": true,
         "convertMeshToIndexed": false,
+        "embedUrlImagePreviews": false,
         "embedUrlImages": false,
         "dracoOptions": {
           "encodeSpeed": 5,
@@ -20,7 +26,9 @@
             "TEX_COORD": 12,
             "GENERIC": 12
           }
-        }
+        },
+        "encrypt": false,
+        "encryptKey": ""
       },
       "type": "AssetExporterPlugin"
     },
@@ -29,11 +37,11 @@
     },
     {
       "enabled": true,
-      "type": "AssetManagerBasicPopupPlugin"
+      "type": "LoadingScreenPlugin"
     },
     {
-      "enabled": true,
-      "type": "AssetManagerLoadingBarPlugin"
+      "enabled": false,
+      "type": "CannonPhysics"
     },
     {
       "enabled": true,
@@ -178,6 +186,7 @@
       "animateOnDrag": false,
       "dragAxis": "y",
       "autoplayOnLoad": false,
+      "syncMaxDuration": false,
       "type": "GLTFAnimation"
     },
     {
@@ -241,7 +250,7 @@
       "enabled": false,
       "rdLight": {
         "object": {
-          "uuid": "bb906e61-87c0-4bc9-9ac9-f6059c154702",
+          "uuid": "c0e46124-c485-4e4d-9fdf-68f9f0db784c",
           "type": "DirectionalLight",
           "castShadow": true,
           "layers": 0,
@@ -263,6 +272,11 @@
             0,
             1
           ],
+          "up": [
+            0,
+            1,
+            0
+          ],
           "color": 13430527,
           "intensity": 1,
           "shadow": {
@@ -273,9 +287,14 @@
               1024
             ],
             "camera": {
-              "uuid": "e1a98481-a5f9-4f6f-a7df-c43d0e5fc9d5",
+              "uuid": "6b99a306-a67b-4fd9-84ef-283db389613d",
               "type": "OrthographicCamera",
               "layers": 1,
+              "up": [
+                0,
+                1,
+                0
+              ],
               "zoom": 1,
               "left": -2,
               "right": 2,
@@ -437,13 +456,26 @@
       "type": "ParallaxCameraControllerPlugin"
     },
     {
+      "enabled": true,
+      "type": "Bloom",
+      "pass": {
+        "threshold": 2,
+        "softThreshold": 0.5,
+        "intensity": 0.5,
+        "bloomIterations": 4,
+        "radius": 0.6,
+        "power": 1,
+        "enabled": true
+      }
+    },
+    {
       "bakedShadows": true,
       "groundReflection": false,
       "physicalReflections": false,
       "shadowBaker": {
         "randomizedLight": {
           "object": {
-            "uuid": "a6f3d5f4-2156-45f4-8bb6-2945c301f550",
+            "uuid": "217747ef-2daa-45c5-bc4e-5b74bf28fad1",
             "type": "DirectionalLight",
             "castShadow": true,
             "layers": 32,
@@ -465,6 +497,11 @@
               0,
               1
             ],
+            "up": [
+              0,
+              1,
+              0
+            ],
             "color": 16777215,
             "intensity": 10,
             "shadow": {
@@ -474,9 +511,14 @@
                 1024
               ],
               "camera": {
-                "uuid": "6a45ada8-2511-421d-998c-71b9dbb99649",
+                "uuid": "cb8721d0-fa3e-43eb-bed8-4e24b96a1892",
                 "type": "OrthographicCamera",
                 "layers": 1,
+                "up": [
+                  0,
+                  1,
+                  0
+                ],
                 "zoom": 1,
                 "left": -2,
                 "right": 2,
@@ -542,10 +584,11 @@
         "smoothShadow": false,
         "groundMapMode": "aoMap",
         "alphaVignette": true,
-        "alphaVignetteAxis": "xy"
+        "alphaVignetteAxis": "xy",
+        "maxBakeCount": "Infinity"
       },
       "material": {
-        "uuid": "7631527b-4118-48bb-a706-d093ca432bcd",
+        "uuid": "675f0e85-16b0-4799-ba3a-e4417e594967",
         "resource": "materials"
       },
       "visible": true,
@@ -555,19 +598,6 @@
       "tonemapGround": true,
       "limitCameraAboveGround": false,
       "type": "Ground"
-    },
-    {
-      "enabled": true,
-      "type": "Bloom",
-      "pass": {
-        "threshold": 2,
-        "softThreshold": 0.5,
-        "intensity": 0.5,
-        "bloomIterations": 4,
-        "radius": 0.6,
-        "power": 1,
-        "enabled": true
-      }
     },
     {
       "extension": {
@@ -587,6 +617,7 @@
       "type": "Outline"
     },
     {
+      "enabled": false,
       "stepCount": 12,
       "binaryStepCount": 3,
       "type": "ReliefParallaxMapping"
@@ -665,8 +696,14 @@
       "type": "XAtlasPlugin"
     }
   ],
+  "renderManager": {
+    "stableNoise": true,
+    "useLegacyLights": true,
+    "serializableClassId": "RenderManager"
+  },
   "scene": {
     "defaultCamera": {
+      "userData": {},
       "camControls": {
         "type": "OrbitControls",
         "dollyZoom": false,
@@ -691,10 +728,21 @@
         "maxPolarAngle": 3.141592653589793,
         "minAzimuthAngle": -10000,
         "maxAzimuthAngle": 10000,
+        "clampMin": {
+          "x": -10000,
+          "y": -10000,
+          "z": -10000,
+          "isVector3": true
+        },
+        "clampMax": {
+          "x": 10000,
+          "y": 10000,
+          "z": 10000,
+          "isVector3": true
+        },
         "screenSpacePanning": true,
         "keyPanSpeed": 7
       },
-      "userData": {},
       "camOptions": {
         "type": "PerspectiveCamera",
         "aspect": "auto",
@@ -724,24 +772,37 @@
     },
     "envMapIntensity": 1,
     "fixedEnvMapDirection": false,
+    "backgroundIntensity": 1,
     "environment": {
       "uuid": "7c7929d1-7a1b-4f54-9c35-9a0b93fb5e95",
       "resource": "textures"
+    },
+    "background": null,
+    "backgroundColor": {
+      "r": 1,
+      "g": 1,
+      "b": 1,
+      "isColor": true
     }
   },
-  "background": "#ffffff",
   "backgroundIntensity": 1,
   "useLegacyLights": true,
+  "background": {
+    "r": 1,
+    "g": 1,
+    "b": 1,
+    "isColor": true
+  },
   "resources": {
     "geometries": {},
     "materials": {
-      "7631527b-4118-48bb-a706-d093ca432bcd": {
+      "675f0e85-16b0-4799-ba3a-e4417e594967": {
         "metadata": {
-          "version": 4.5,
+          "version": 4.6,
           "type": "Material",
           "generator": "Material.toJSON"
         },
-        "uuid": "7631527b-4118-48bb-a706-d093ca432bcd",
+        "uuid": "675f0e85-16b0-4799-ba3a-e4417e594967",
         "type": "MeshStandardMaterial2",
         "name": "BaseGroundMaterial",
         "color": 16777215,
@@ -762,7 +823,7 @@
           400
         ],
         "envMapIntensity": 1,
-        "reflectivity": 0.5,
+        "reflectivity": 0.49999999999999983,
         "transmission": 0,
         "thickness": 0,
         "attenuationDistance": 0,
@@ -789,14 +850,14 @@
           "ssreflNonPhysical": true,
           "gMapMode": "aoMap",
           "ALPHA_I_RGBA_PACKING": false,
-          "uuid": "7631527b-4118-48bb-a706-d093ca432bcd"
+          "uuid": "675f0e85-16b0-4799-ba3a-e4417e594967"
         }
       }
     },
     "textures": {
       "7c7929d1-7a1b-4f54-9c35-9a0b93fb5e95": {
         "metadata": {
-          "version": 4.5,
+          "version": 4.6,
           "type": "Texture",
           "generator": "Texture.toJSON"
         },
@@ -804,6 +865,7 @@
         "name": "",
         "image": "e302f2ec-f85b-4e85-a813-e3dd5d8a2c77",
         "mapping": 303,
+        "channel": 0,
         "repeat": [
           1,
           1
@@ -824,6 +886,7 @@
         "format": 1023,
         "internalFormat": null,
         "type": 1016,
+        "colorSpace": "",
         "encoding": 3000,
         "minFilter": 1006,
         "magFilter": 1006,
