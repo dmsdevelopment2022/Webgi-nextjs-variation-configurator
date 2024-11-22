@@ -1,0 +1,1 @@
+# Webgi-nextjs-variation-configurator
