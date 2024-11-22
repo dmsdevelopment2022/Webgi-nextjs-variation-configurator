@@ -1,0 +1,75 @@
+{
+    "objects": [
+      {
+        "items": [          
+          "https://dev.kgkdms.com/imageserver/customize/head/Diamond_Cushion_Square.glb"
+        ],
+        "prefix": "Basket/",
+        "name": "Basket",
+        "title": "",
+        "icon": "",
+        "icons": ["Cushion Head"],
+        "titles": ["Cushion Head"],
+        "iconFiles": []
+      },
+      {
+        "items": [
+          "https://dev.kgkdms.com/imageserver/customize/shank/shank1.glb",
+          "https://dev.kgkdms.com/imageserver/customize/shank/shank2.glb"
+        ],
+        "prefix": "Ring/",
+        "name": "Ring",
+        "title": "",
+        "icon": "",
+        "icons": ["shank1", "shank2"],
+        "titles": ["shank1", "shank2"],
+        "iconFiles": []
+      }
+    ],
+    "materials": [
+      {
+        "items": [
+          "https://dev.kgkdms.com/imageserver/customize/metal/PG.pmat",
+          "https://dev.kgkdms.com/imageserver/customize/metal/WG.pmat",
+          "https://dev.kgkdms.com/imageserver/customize/metal/YG.pmat"
+        ],
+        "icons": ["#988583", "#ffffff", "#ad9000"],
+        "iconFiles": [],
+        "titles": ["rose", "white", "yellow"],
+        "prefix": "Metal/",
+        "name": "Mesh_0014",
+        "icon": "",
+        "title": ""
+      },
+      {
+        "items": [
+          "https://dev.kgkdms.com/imageserver/customize/metal/Rose Gold.pmat",
+          "https://dev.kgkdms.com/imageserver/customize/metal/White Gold.pmat",
+          "https://dev.kgkdms.com/imageserver/customize/metal/Yellow Gold.pmat"
+        ],
+        "icons": ["#988583", "#ffffff", "#ad9000"],
+        "iconFiles": [],
+        "titles": ["rose", "white", "yellow"],
+        "prefix": "Metal/",
+        "name": "mesh_0",
+        "icon": "",
+        "title": ""
+      },
+      {
+        "items": [
+          "https://dev.kgkdms.com/imageserver/customize/gem/White Diamond.dmat",
+          "https://dev.kgkdms.com/imageserver/customize/gem/Blue Sapphire.dmat",
+          "https://dev.kgkdms.com/imageserver/customize/gem/Emerald.dmat",
+          "https://dev.kgkdms.com/imageserver/customize/gem/Ruby.dmat"
+        ],
+        "icons": ["#DDDDDD", "#0000FF", "#00FF00", "#FF0000"],
+        "iconFiles": [],
+        "titles": ["White", "BlueSupphire", "Emerland", "Ruby"],
+        "prefix": "Gem/",
+        "name": "Diamond_Cushion_Square",
+        "icon": "",
+        "title": ""
+      }
+    ],
+    "type": "VariationConfiguratorPlugin"
+  }

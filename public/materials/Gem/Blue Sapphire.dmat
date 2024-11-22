@@ -1,0 +1,39 @@
+{
+  "metadata": {
+    "version": 4.6,
+    "type": "DiamondMaterial",
+    "generator": "DiamondMaterial.toJSON"
+  },
+  "name": "Blue Sapphire",
+  "uuid": "48458235-e980-4ca8-93be-22979b044b72",
+  "color": 3904722,
+  "envMapIntensity": 1,
+  "envMapIndex": 0,
+  "envMapRotationOffset": 0,
+  "dispersion": 0.0098,
+  "squashFactor": 0.98,
+  "geometryFactor": 0.5,
+  "gammaFactor": 1,
+  "absorptionFactor": 1.6,
+  "reflectivity": 0.5,
+  "refractiveIndex": 2.17,
+  "rayBounces": 5,
+  "diamondOrientedEnvMap": 0,
+  "boostFactors": {
+    "x": 1,
+    "y": 1,
+    "z": 1.2,
+    "isVector3": true
+  },
+  "transmission": 0,
+  "isDiamondMaterialParameters": true,
+  "type": "DiamondMaterial",
+  "userData": {
+    "separateEnvMapIntensity": true,
+    "_baseMaterial": "4ee9165a-bce2-4a2b-bfdf-273a2e137d31",
+    "rootPath": "gem/sapphire-1.dmat",
+    "cloneId": "0_1_1_4",
+    "cloneCount": 0,
+    "uuid": "48458235-e980-4ca8-93be-22979b044b72"
+  }
+}
