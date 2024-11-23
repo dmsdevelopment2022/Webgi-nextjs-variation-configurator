@@ -2,14 +2,17 @@
     "objects": [
       {
         "items": [          
-          "https://dev.kgkdms.com/imageserver/customize/head/Diamond_Cushion_Square.glb"
+          "https://dev.kgkdms.com/imageserver/customize/head/Diamond_Cushion_Square.glb",
+          "https://dev.kgkdms.com/imageserver/customize/head/Diamond_Emerald.glb",
+          "https://dev.kgkdms.com/imageserver/customize/head/Diamond_Oval.glb",
+          "https://dev.kgkdms.com/imageserver/customize/head/Diamond_Round.glb"
         ],
         "prefix": "Basket/",
         "name": "Basket",
         "title": "",
         "icon": "",
-        "icons": ["Cushion Head"],
-        "titles": ["Cushion Head"],
+        "icons": ["Cushion Head", "Emerald Head", "Oval Head", "Round Head"],
+        "titles": ["Cushion Head", "Emerald Head", "Oval Head", "Round Head"],
         "iconFiles": []
       },
       {
